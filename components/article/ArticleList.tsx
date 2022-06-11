@@ -11,6 +11,7 @@ import ArticlePreview from "./ArticlePreview";
 const ArticleList: React.FC = () => {
   const page = usePageState();
   //   let fetchURL = `${SERVER_BASE_URL}/articles?offset=${page * DEFAULT_LIMIT}`;
+  // データを取れるようにページネーションを外している
   let fetchURL = `${SERVER_BASE_URL}/articles`;
 
   const { data, error } = useSWR(fetchURL, fetcher);
@@ -25,16 +26,15 @@ const ArticleList: React.FC = () => {
 
   const { articles, articlesCount } = data;
 
+  // 記事件数が0件
   if (articles && articles.length === 0) {
     return <div>No articles are here</div>;
   }
 
-  console.log(articles);
-
   // Function component返却
   return (
     <>
-      {articles.map((article: any) => {
+      {articles.map((article: ArticleType) => {
         return <ArticlePreview key={article.slug} article={article} />;
       })}
     </>
