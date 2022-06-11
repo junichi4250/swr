@@ -24,12 +24,12 @@ const PageCountContextProveder = ({ children }: Props) => {
   );
 };
 
-export const useCountPageState = () => {
+export const usePageCountState = () => {
   const state = useContext(PageCountStateContext);
   return state;
 };
 
-export const useCountPageDispatch = () => {
+export const usePageCountDispatch = () => {
   const dispatch = useContext(PageCountDispatchContext);
   return dispatch;
 };

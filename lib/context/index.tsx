@@ -2,7 +2,7 @@ import React from "react";
 import PageContext from "./PageContext";
 import PageCountContext from "./PageCountContext";
 
-const ContextProvider = ({ children }) => (
+const ContextProvider = ({ children }: any) => (
   <PageContext>
     <PageCountContext>{children}</PageCountContext>
   </PageContext>
