@@ -6,6 +6,8 @@ const ArticleAPI = {
   all: (page: number, limit: number = 10) => {
     axios.get(`${SERVER_BASE_URL}/articles?${getQuery(limit, page)}`);
   },
+
+  get: (slug: string) => axios.get(`${SERVER_BASE_URL}/articles/${slug}`),
 };
 
 export default ArticleAPI;
