@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import useSWR from "swr";
+import CommentList from "../../components/comment/CommentList";
 import ArticleAPI from "../../lib/api/article";
 import { Article } from "../../lib/types/articleTypes";
 import { SERVER_BASE_URL } from "../../lib/utils/constant";
@@ -23,6 +24,9 @@ const ArticlePage = (initialArticle: Article) => {
   return (
     <>
       <div>{article.title}</div>
+      <div>
+        <CommentList />
+      </div>
     </>
   );
 };
